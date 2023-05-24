@@ -10,19 +10,24 @@
 # object(123) --> 6
 # object('abcdef') --> bcdf
 
+
+
+def long(self, object):
+    return len(str(object))
 class my_hw:
     def recept(self, object):
-        def long(self, object):
-            return len(str(object))
         if isinstance(object, str):
-            if sum(i in 'ауоыиэюяеёaeiouy' for i in object.lower()) * sum(i
-                    in 'бвгджзйклмнпрстфхцчшщbcdfghjklmnpqrstvwxz'
-                    for i in object.lower()) <= long(self, object) :
-                return ''.join([i for i in object if i.lower() in 'ауоыиэюяеёaeiouy'])
+            glasnyye = 'ауоыиэюяеёaeiouy'
+            soglasnyye = 'бвгджзйклмнпрстфхцчшщbcdfghjklmnpqrstvwxz'
+            verification = sum(i.lower() in glasnyye for i in object)\
+                * sum(i.lower() in soglasnyye for i in object)
+            if verification <= long(self, object):
+                return ''.join(char for char in object if char.lower() in glasnyye)
             else:
-                return ''.join([i for i in object if i.lower() in 'бвгджзйклмнпрстфхцчшщbcdfghjklmnpqrstvwxz'])
+                return ''.join(char for char in object if char.lower() in soglasnyye)
         elif isinstance(object, int):
-            return sum(int(i) for i in str(object) if i in '2468') * long(self, object)
+            digit_sum = sum(int(digit) for digit in str(object) if digit in '2468')
+            return digit_sum * long(self, object)
 
 test17 = my_hw()
 
