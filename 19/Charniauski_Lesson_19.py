@@ -22,12 +22,12 @@ class Company:
 
 # Создайте метод _level_up(), который будет переводить программиста на следующий уровень
     def _level_up(self):
-        if self._index in self.levels.keys():
+        if self._index in 4:
+            print(f' Максимальный уровень: {self._index}')
+        else:
             self._index += 1
             print(f' Уровень повышен: {self._index}')
-        else:
-            print (f' Максимальный уровень: {self._index}')
-# Создайте метод is_lead(), который будет проверять, что программист достиг последней квалификации
+    # Создайте метод is_lead(), который будет проверять, что программист достиг последней квалификации
     def is_lead(self):
         if self._index == 4:
             print(f' Достигнут максимальный уровень: {self._level}')
@@ -38,11 +38,11 @@ class Company:
 # 2)age - возраст
 # 3) level – уровень квалификации на основе словаря из Company
 class Programmer(Company):
-    def __init__(self, name, age, level):
+    def __init__(self, name, age):
         super().__init__(self.levels)
         self.name = name
         self.age = age
-        level = self.levels
+        _level = self.levels
 # Создайте метод work(), который заставляет программиста работать,
 # что позволяет ему становиться более квалифицированным с помощью метода _level_up()
 # родительского класса
@@ -65,7 +65,7 @@ class Programmer(Company):
 # Используя объект класса Programmer, повысьте свой уровень квалификации
 # Дойдите до уровня lead
 
-#my_compani = Company(1)
+my_compani = Company(1)
 
 
 my_programmer = Programmer('Виталий', 42)
